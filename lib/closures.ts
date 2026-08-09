@@ -18,7 +18,7 @@ import { HOURS } from "./brand";
 const CANDLE_MIN = 18;
 const HAVDALAH_MIN = 50;
 
-/** Northern Israel. The invented restaurant sits in this band. */
+/** Central Israel. The invented restaurant sits in this band. */
 const LOCATION = Location.lookup("Tel Aviv");
 
 export type ClosureWindow = {

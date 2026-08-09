@@ -6,6 +6,7 @@ import { MENU_BY_ID } from "@/lib/menu";
 import { formatAgorot } from "@/lib/cart/pricing";
 import { useLang } from "@/lib/i18n";
 import { useHydrated } from "@/lib/useHydrated";
+import { useNow } from "@/lib/useNow";
 import { isActive, nextStatus, type Order, type OrderStatus } from "@/lib/orders/types";
 
 const COLUMNS: { status: OrderStatus[]; key: "new" | "prep" | "out" }[] = [
@@ -125,7 +126,10 @@ function OrderCard({ order }: { order: Order }) {
   const advance = useOrders((s) => s.advance);
   const cancel = useOrders((s) => s.cancel);
 
-  const waitingMin = Math.floor((Date.now() - order.placedAt) / 60000);
+  // A ticket that has been up for 12 minutes should say so without waiting for
+  // the store to change, so the board re-reads the clock every half minute.
+  const now = useNow(30_000);
+  const waitingMin = Math.floor((now - order.placedAt) / 60000);
   const hot = waitingMin >= 12;
 
   return (
