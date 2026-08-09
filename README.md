@@ -2,6 +2,8 @@
 
 **Colin Olivier · 2026 · Next.js 16, React 19, TypeScript, Tailwind 4**
 
+![CI](https://github.com/Neuralowkey/demo-restaurant-ordering/actions/workflows/ci.yml/badge.svg)
+
 **[▶ Open the live demo](https://demo-restaurant-ordering.vercel.app)** · no login, nothing to install
 
 A working demo of an ordering and delivery system for an independent restaurant:
