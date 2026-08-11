@@ -52,6 +52,10 @@ export function DemoBanner() {
             );
           })}
         </nav>
+
+        <span lang="he" className="select-none text-bone-500">
+          ב״ה
+        </span>
       </div>
     </div>
   );
