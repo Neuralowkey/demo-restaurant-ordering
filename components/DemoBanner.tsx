@@ -2,33 +2,34 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useLang } from "@/lib/i18n";
 
+/** Labels come from the dictionary; only the routes are fixed here. */
 const LINKS = [
-  { href: "/", label: "Storefront" },
-  { href: "/kitchen", label: "Kitchen view" },
-];
+  { href: "/", key: "nav_storefront" },
+  { href: "/kitchen", key: "nav_kitchen" },
+] as const;
 
 /**
  * Sits above everything, on every page. Two jobs: say plainly that the data is
  * invented, and give a visitor who lands mid-flow a way back out.
+ *
+ * It inherits the document direction rather than pinning itself to LTR, so the
+ * one bar present on every screen mirrors with the rest of the page.
  */
 export function DemoBanner() {
   const pathname = usePathname();
+  const { t } = useLang();
 
   return (
-    <div
-      dir="ltr"
-      className="sticky top-0 z-50 border-b border-char-700 bg-char-850/95 backdrop-blur"
-    >
+    <div className="sticky top-0 z-50 border-b border-char-700 bg-char-850/95 backdrop-blur">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-2 text-xs sm:px-6">
         <span className="inline-flex items-center gap-2 font-medium tracking-wide text-ember-400">
           <span className="inline-block size-1.5 rounded-full bg-ember-500 animate-ember-pulse" />
-          DEMO
+          {t("demo_badge")}
         </span>
 
-        <p className="text-bone-500">
-          A portfolio build. Every dish, price, customer and order is invented.
-        </p>
+        <p className="text-bone-500">{t("demo_blurb")}</p>
 
         <nav className="ms-auto flex items-center gap-1">
           {LINKS.map((link) => {
@@ -47,7 +48,7 @@ export function DemoBanner() {
                     : "text-bone-500 hover:text-bone-200"
                 }`}
               >
-                {link.label}
+                {t(link.key)}
               </Link>
             );
           })}
