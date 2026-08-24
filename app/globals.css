@@ -88,6 +88,28 @@ html[dir="rtl"] .display {
   animation: marquee 32s linear infinite;
 }
 
+/* Sparks drifting up from the coals — decorative, killed by reduced-motion. */
+@keyframes spark-rise {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.8;
+  }
+  70% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-140px);
+    opacity: 0;
+  }
+}
+
+@utility animate-spark {
+  animation: spark-rise 5s ease-in infinite;
+}
+
 @keyframes ember-pulse {
   0%,
   100% {

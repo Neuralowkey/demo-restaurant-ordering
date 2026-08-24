@@ -18,7 +18,12 @@ export function Hero({ status }: { status: ServiceStatus }) {
           background:
             "radial-gradient(70% 60% at 50% 110%, rgba(242,98,29,0.30) 0%, rgba(242,98,29,0.08) 42%, transparent 72%)",
         }}
-      />
+      >
+        <span className="animate-spark absolute bottom-6 left-[18%] size-1 rounded-full bg-ember-400" />
+        <span className="animate-spark absolute bottom-2 left-[42%] size-0.5 rounded-full bg-ember-300 [animation-delay:1.6s]" />
+        <span className="animate-spark absolute bottom-4 left-[65%] size-1 rounded-full bg-ember-500 [animation-delay:3.2s]" />
+        <span className="animate-spark absolute bottom-3 left-[81%] size-0.5 rounded-full bg-ember-300 [animation-delay:2.4s]" />
+      </div>
 
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28">
         <p className="text-xs font-semibold tracking-[0.22em] text-ember-400">

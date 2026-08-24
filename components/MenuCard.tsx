@@ -56,7 +56,7 @@ export function MenuCard({ item }: { item: MenuItem }) {
   }
 
   return (
-    <article className="flex flex-col rounded-card border border-char-700 bg-char-850 p-5 transition-colors hover:border-char-600">
+    <article className="flex flex-col rounded-card border border-char-700 bg-char-850 p-5 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-char-600 hover:shadow-[0_16px_40px_-20px_rgba(242,98,29,0.35)]">
       <div className="flex items-start justify-between gap-4">
         <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold leading-snug text-bone-100">
           {localized(item, "name")}
@@ -85,7 +85,11 @@ export function MenuCard({ item }: { item: MenuItem }) {
           {item.tags.map((tag) => (
             <li
               key={tag}
-              className="rounded-full border border-char-600 px-2 py-0.5 text-[11px] text-bone-400"
+              className={`rounded-full border px-2 py-0.5 text-[11px] ${
+                tag === "signature"
+                  ? "border-ember-500/50 text-ember-300"
+                  : "border-char-600 text-bone-400"
+              }`}
             >
               {TAG_LABEL[tag][lang]}
             </li>
