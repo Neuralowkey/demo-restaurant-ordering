@@ -2,7 +2,7 @@
 
 # Olive & Ember — a restaurant ordering & delivery system
 
-**Colin Olivier · 2026 · Next.js 16, React 19, TypeScript, Tailwind 4**
+**Colin David Olivier · 2026 · Next.js 16, React 19, TypeScript, Tailwind 4**
 
 ![CI](https://github.com/Neuralowkey/demo-restaurant-ordering/actions/workflows/ci.yml/badge.svg)
 
